@@ -51,12 +51,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// This middleware will allow us to use the currentUser in our views and routes.
-app.use(function (req, res, next) {
-  global.currentUser = req.user;
-  next();
-});
-
 // passport
 app.use(session({ secret: 'WDI Rocks!',
                   resave: true,
@@ -64,6 +58,12 @@ app.use(session({ secret: 'WDI Rocks!',
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+// This middleware will allow us to use the currentUser in our views and routes.
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
 
 require('./config/passport/passport')(passport);
 
