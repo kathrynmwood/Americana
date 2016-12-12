@@ -6,7 +6,8 @@ var UserSchema = new mongoose.Schema({
       email: String,
       password: String
     },
-    visit: String
+    parksVisted: Number,
+    parksRemaining: Number
   });
 
 UserSchema.methods.encrypt = function(password) {
