@@ -27,6 +27,11 @@ h2 {
   letter-spacing: 1px;
 }
 
+.navbar {
+  display: inline;
+  list-style: none;
+}
+
 a {
   color: #00B7FF;
 }

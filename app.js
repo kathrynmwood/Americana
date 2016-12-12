@@ -28,8 +28,16 @@ var app = express();
 var User = require('./models/user.js');
 var Park = require('./models/park.js');
 
-// mongo connection
-mongoose.connect('mongodb://heroku_gcfs6h7h:5uq86ihmvc19u1ndgls60j2maq@ds127968.mlab.com:27968/heroku_gcfs6h7h');
+// Connect to the database
+mongoose.connect('mongodb://localhost/project2');
+
+// our app will not exit until we have disconnected from the db.
+function quit() {
+  mongoose.disconnect();
+  console.log('All Done!');
+}
+
+quit();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
