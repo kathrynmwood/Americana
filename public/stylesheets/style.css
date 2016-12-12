@@ -1,16 +1,7 @@
-/*body {
-  background-image: url('/images/htayowqrxww-ana-filipa-neves.jpg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-}*/
-
-header {
-  background-color: #2d4b1e;
+.nav-wrapper {
   color: #ffffff;
   text-align: center;
   margin: 0 auto;
-  padding: 5px;
 }
 
 h1 {
@@ -19,7 +10,6 @@ h1 {
   font-size: 3em;
   letter-spacing: 3px;
   text-align: center;
-  margin-bottom: -10px;
 }
 
 h2 {
