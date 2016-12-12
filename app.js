@@ -32,12 +32,12 @@ var Park = require('./models/park.js');
 mongoose.connect('mongodb://localhost/project2');
 
 // our app will not exit until we have disconnected from the db.
-function quit() {
-  mongoose.disconnect();
-  console.log('All Done!');
-}
-
-quit();
+// function quit() {
+//   mongoose.disconnect();
+//   console.log('All Done!');
+// }
+//
+// quit();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
