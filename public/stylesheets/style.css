@@ -1,0 +1,32 @@
+/*body {
+  background-image: url('/images/htayowqrxww-ana-filipa-neves.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}*/
+
+header {
+  background-color: #2d4b1e;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;;
+  font-size: 3em;
+  letter-spacing: 3px;
+  margin-bottom: -10px;
+}
+
+h2 {
+  font-family: 'Cardo', serif;
+  font-size: 1.75em;
+  letter-spacing: 1px;
+}
+
+a {
+  color: #00B7FF;
+}
