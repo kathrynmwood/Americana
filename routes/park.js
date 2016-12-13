@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/:parkName', function(req, res, next) {
   var parkName = req.params.parkName;
 
-ParkModel.find({parkName:parkName}, function(err,result){
+parkSchema.find({parkName:parkName}, function(err,result){
 if(err){
   return next(err);
 }else{
