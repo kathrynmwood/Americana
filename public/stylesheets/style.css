@@ -4,6 +4,12 @@
   margin: 0 auto;
 }
 
+main {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
 h1 {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
