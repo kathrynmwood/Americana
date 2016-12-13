@@ -1,4 +1,7 @@
 var apiData = require('./nps-api.json');
+let mongoose = require('mongoose');
+let myModel = require('../models/park.js');
+let databaseURI = 'mongodb://localhost/project2';
 
 var parsedDataArray = [];
 
@@ -40,4 +43,18 @@ for (let i = 0; i < apiData.data.length; i++) {
     parsedDataArray.push(parsedDataObj);
 };
 
-console.log(parsedDataArray);
+// console.log(parsedDataArray);
+
+// mongoose.connect(databaseURI, function (connectionError) {
+//     myModel.create(parsedDataArray, function(err,result) {
+//         if (err) {
+//           console.log("ERROR:", err);
+//         } else {
+//           console.log("RESULT:", result);
+//         }
+//     });
+// });
+
+// db.parks.insertMany(
+//   parsedDataArray
+// );
