@@ -5,7 +5,7 @@ var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("REQUEST:", req.session);
-  res.render('index', { title: 'National Parks Tracker', message: req.flash() });  // add the message
+  res.render('index');  // add the message
 });
 
 // GET /signup
@@ -16,7 +16,7 @@ router.get('/signup', function(req, res, next) {
 // POST /signup
 router.post('/signup', function(req, res, next) {
   var signUpStrategy = passport.authenticate('local-signup', {
-    successRedirect : '/profile',
+    successRedirect : '/profile/:id',
     failureRedirect : '/signup',
     failureFlash : true
   });

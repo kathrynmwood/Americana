@@ -3,16 +3,23 @@ var router = express.Router();
 var User = require('../models/user.js');
 
 // SHOW
-router.get('/:id', function(req, res, next) {
-    User.findById(req.params.id)
-        .then(function(user) {
-            if (!user) return next(makeError(res, 'Document not found', 404));
-            res.render('profile', {
-                user: user
-            });
-        }, function(err) {
-            return next(err);
+router.get('/', function(req, res, next) {
+    if (req.user) {
+        var userId = req.user._id;
+        User.findById(userId, function(err, user) {
+            if (err) {
+                return next(err);
+            } else {
+                res.render('profile', {
+                    user: user
+                });
+            }
         });
+
+    } else {
+        return res.redirect('/');
+    }
+
 });
 
 module.exports = router;

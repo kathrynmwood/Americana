@@ -22,6 +22,7 @@ var strategy = new LocalStrategy({
                 newUser.local.password = newUser.encrypt(password);
 
                 newUser.save(function(err) {
+                    console.log(newUser);
                     return callback(err, newUser);
                 });
             }

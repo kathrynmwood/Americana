@@ -94,8 +94,8 @@ app.use(function(err, req, res, next) {
 });
 
 // db connection test
-User.create({ name: "Katie", email: "woodkm11@gmail.com"}, function(err, result) {
-  console.log("result:", result);
-});
+// User.create({ name: "Katie", email: "woodkm11@gmail.com"}, function(err, result) {
+//   console.log("result:", result);
+// });
 
 module.exports = app;
