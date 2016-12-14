@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
             if (err) {
                 return next(err);
             } else {
+                console.log(user);
                 res.render('profile', {
                     user: user
                 });
@@ -20,6 +21,18 @@ router.get('/', function(req, res, next) {
         return res.redirect('/');
     }
 
+});
+
+
+// Adds park.id to user document
+router.get('/bucketlist/add/:id', function(req, res, next) {
+    req.user.parksBucketList.push(req.params.id);
+    req.user.save()
+        .then(function() {
+            res.redirect('/profile');
+        }, function(err) {
+            return next(err);
+        });
 });
 
 module.exports = router;

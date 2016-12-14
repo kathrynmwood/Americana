@@ -6,8 +6,8 @@ var UserSchema = new mongoose.Schema({
       email: String,
       password: String
     },
-    parksVisited: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Park' }],
-    parksBucketList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Park' }]
+    parksVisited:    [ { type: mongoose.Schema.Types.ObjectId, ref: 'Park' } ],
+    parksBucketList: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Park' } ]
   });
 
 UserSchema.methods.encrypt = function(password) {

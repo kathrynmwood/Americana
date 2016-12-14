@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Park = require('../models/park.js');
+var User = require('../models/user.js');
 
 
 // Error handling
@@ -22,9 +23,5 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('parks', { title: 'National Parks' });
-// });
 
 module.exports = router;
