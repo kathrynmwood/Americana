@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user.js');
+var Park = require('../models/park.js');
 
 // SHOW
 router.get('/', function(req, res, next) {
@@ -24,9 +25,20 @@ router.get('/', function(req, res, next) {
 });
 
 
-// Adds park.id to user document
+// Adds park.id to user document under parksBucketList
 router.get('/bucketlist/add/:id', function(req, res, next) {
     req.user.parksBucketList.push(req.params.id);
+    req.user.save()
+        .then(function() {
+            res.redirect('/profile');
+        }, function(err) {
+            return next(err);
+        });
+});
+
+// Adds park.id to user document under parksVisited
+router.get('/visited/add/:id', function(req, res, next) {
+    req.user.parksVisited.push(req.params.id);
     req.user.save()
         .then(function() {
             res.redirect('/profile');
