@@ -4,7 +4,7 @@
 
 For WDI project #2, I created a web application called Americana. Americana is the explorer's guide to the National Parks.
 
-The app allows users to create an account and log in. The user can then view a list of all National Parks, as well as park details, including location, description, and weather info. I used JSON data from the National Park Service Data API to create these pages.
+The app allows users to create an account and log in. The user can then view a list of all National Parks, as well as park-specific details, including location, description, and weather info. I used JSON data from the National Park Service Data API to create these pages.
 
 The user can add a national park to her personal bucket list. Once the user visits the park, she . The user can add notes and a review to visited parks.  
 
