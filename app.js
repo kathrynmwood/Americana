@@ -29,7 +29,7 @@ var User = require('./models/user.js');
 var Park = require('./models/park.js');
 
 // Connect to the database
-mongoose.connect('mongodb://localhost/project2');
+mongoose.connect('mongodb://kathrynwood:Clover24**@ds133438.mlab.com:33438/wdi-project-2');
 
 // our app will not exit until we have disconnected from the db.
 // function quit() {

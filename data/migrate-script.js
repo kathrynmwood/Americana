@@ -1,7 +1,7 @@
 // var apiData = require('./nps-api.json');
 // let mongoose = require('mongoose');
 // let parkModel = require('../models/park.js');
-// let databaseURI = 'mongodb://localhost/project2';
+// let databaseURI = 'mongodb://kathrynwood:Clover24**@ds133438.mlab.com:33438/wdi-project-2';
 //
 // var parsedDataArray = [];
 //
