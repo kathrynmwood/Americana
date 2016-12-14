@@ -6,7 +6,7 @@ For WDI project #2, I created a web application called Americana.
 
 The user creates an account. The user can then log in and view their profile page. The user can also view a page that lists all national parks, as well as detailed pages for each national park. The user can add a national park to her personal bucket list. The user can move a park from her bucket list to her parks visited list. The user can add notes and a review to visited parks.  
 
-**Live site:** LINK HERE ONCE DEPLOYED WITH HEROKU
+**Live site:** https://project-2-katiewood.herokuapp.com/
 
 ## Technologies Used
 
