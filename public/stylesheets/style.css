@@ -39,6 +39,12 @@ a {
   color: #00B7FF;
 }
 
+form {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 50px;
+}
+
 footer {
   text-align: center;
   position: absolute;
