@@ -2,9 +2,11 @@
 
 ## Overview
 
-For WDI project #2, I created a web application called Americana.
+For WDI project #2, I created a web application called Americana. Americana is the explorer's guide to the National Parks.
 
-The user creates an account. The user can then log in and view their profile page. The user can also view a page that lists all national parks, as well as detailed pages for each national park. The user can add a national park to her personal bucket list. The user can move a park from her bucket list to her parks visited list. The user can add notes and a review to visited parks.  
+The app allows users to create an account and log in. The user can then view a list of all National Parks, as well as park details, including location, description, and weather info. I used JSON data from the National Park Service Data API to create these pages.
+
+The user can add a national park to her personal bucket list. Once the user visits the park, she . The user can add notes and a review to visited parks.  
 
 **Live site:** https://project-2-katiewood.herokuapp.com/
 
@@ -16,6 +18,7 @@ The user creates an account. The user can then log in and view their profile pag
 - Design - Materialize, Google Fonts, Adobe Illustrator
 - Authentication & Authorization - Passport
 - Deployment - Heroku, mLab
+- APIs - National Park Service Data API
 - Project Planning & User Stories - [Trello](https://trello.com/b/cqbXHWEp/wdi-project-2)
 - Text Editor - Atom 1.12.7
 
@@ -25,6 +28,6 @@ The user creates an account. The user can then log in and view their profile pag
 
 ## Future Development Goals
 
-- Make it responsive
+- Incorporate gamification (add badges for every increment of 5 visits)
 - Add images to park cards
 - Optimize images
