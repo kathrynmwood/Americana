@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body class="container-fluid">
+    <header>
+        <% include partials/header %>
+    </header>
+
+    <main>
+        <h1>National Parks</h1>
+
+        <!-- Cards -->
+        <div class="row">
+
+            <!-- Loops through parks collection in db and creates a card for each National Park -->
+            <% parks.forEach(function(park) { %>
+                <% if (park.designation === "National Park") { %>
+                    <div class="col s12 m4">
+                        <div class="card teal darken-3">
+                            <div class="card-content white-text">
+                                <span class="card-title"> <%= park.name %> </span>
+                                <p>
+                                    <%= park.state %>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="parks/<%= park._id %>">Learn More</a>
+                                <a href="/profile/bucketlist/add/<%= park._id %>">Add to Bucket List</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }) %>
+
+                            <!-- <div class="col s12 m4">
+                <div class="card teal darken-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">Park Name Here</span>
+                        <p>This is a card all about parks.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Learn More</a>
+                        <a href="#">Add to Bucket List</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="card teal darken-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">Park Name Here</span>
+                        <p>This is a card all about parks.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Learn More</a>
+                        <a href="#">Add to Bucket List</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
