@@ -50,7 +50,7 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
                 }
                 // console.log('what was that park?', park);
             });
-    }
+    };
 });
 
 
@@ -67,9 +67,8 @@ router.get('/visited/add/:id', function(req, res, next) {
 
 // DESTROY
 router.get('/bucketlist/delete/:id', function(req, res, next) {
-    let park = req.user.parksBucketList(req.params.id);
+    let park = req.params.id;
     let index = req.user.parksBucketList.indexOf(park);
-    res.send(req.params.id);
     console.log(index);
     req.user.parksBucketList.splice(index, 1);
     req.user.save()
@@ -79,10 +78,5 @@ router.get('/bucketlist/delete/:id', function(req, res, next) {
             return next(err);
         });
 });
-
-
-
-
-
 
 module.exports = router;
