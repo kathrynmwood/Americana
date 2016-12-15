@@ -36,20 +36,21 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
         });
 
 
-// Attempt at populating park info into cards
-for (let i=0; i < req.user.parksBucketList.length; i++) {
-Park.findOne({ _id: req.user.parksBucketList[i] })
-  .populate('name')    // <- pull in park name data
-  .exec(function(err, park) {
-    if (err){
-      return console.log(err);
+    // Attempt at populating park info into cards
+    for (let i = 0; i < req.user.parksBucketList.length; i++) {
+        Park.findOne({
+                _id: req.user.parksBucketList[i]
+            })
+            .populate('name') // <- pull in park name data
+            .exec(function(err, park) {
+                if (err) {
+                    return console.log(err);
+                } else {
+                    console.log(park.name + ' is the name of this park.');
+                }
+                // console.log('what was that park?', park);
+            });
     }
-    else {
-      console.log(park.name + ' is the name of this park.');
-    }
-    // console.log('what was that park?', park);
-  });
-  }
 });
 
 
@@ -63,6 +64,24 @@ router.get('/visited/add/:id', function(req, res, next) {
             return next(err);
         });
 });
+
+// DESTROY
+router.get('/bucketlist/delete/:id', function(req, res, next) {
+    let park = req.user.parksBucketList(req.params.id);
+    let index = req.user.parksBucketList.indexOf(park);
+    res.send(req.params.id);
+    console.log(index);
+    req.user.parksBucketList.splice(index, 1);
+    req.user.save()
+        .then(function(saved) {
+            res.redirect('/profile');
+        }, function(err) {
+            return next(err);
+        });
+});
+
+
+
 
 
 
