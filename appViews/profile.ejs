@@ -19,14 +19,14 @@
                     <div class="col s12 m4">
                         <div class="card teal darken-3">
                             <div class="card-content white-text">
-                                <span class="card-title"> PARK NAME HERE </span>
+                                <span class="card-title"> <%= user.parksBucketList[i].name %> </span>
                                 <p>
-                                    <%= user.parksBucketList[i] %>
+                                    <%= user.parksBucketList[i].state %>
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a href="parks/<%= user.parksBucketList[i] %>">Learn More</a>
-                                <a href="profile/bucketlist/delete/<%= user.parksBucketList[i] %>">Remove</a>
+                                <a href="parks/<%= user.parksBucketList[i]._id %>">Learn More</a>
+                                <a href="profile/bucketlist/delete/<%= user.parksBucketList[i]._id %>">Remove</a>
                             </div>
                         </div>
                     </div>

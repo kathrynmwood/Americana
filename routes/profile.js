@@ -7,7 +7,7 @@ var Park = require('../models/park.js');
 router.get('/', function(req, res, next) {
     if (req.user) {
         var userId = req.user._id;
-        User.findById(userId, function(err, user) {
+        User.findById(userId).populate('parksBucketList').exec(function(err, user) {
             if (err) {
                 return next(err);
             } else {
@@ -34,23 +34,6 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
         }, function(err) {
             return next(err);
         });
-
-
-    // Attempt at populating park info into cards
-    for (let i = 0; i < req.user.parksBucketList.length; i++) {
-        Park.findOne({
-                _id: req.user.parksBucketList[i]
-            })
-            .populate('name') // <- pull in park name data
-            .exec(function(err, park) {
-                if (err) {
-                    return console.log(err);
-                } else {
-                    console.log(park.name + ' is the name of this park.');
-                }
-                // console.log('what was that park?', park);
-            });
-    };
 });
 
 

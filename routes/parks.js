@@ -14,7 +14,7 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  // get all the todos and render the index view
+  // get all the parks and render the index view
   Park.find({}).sort( {fullName: 1} )
   .then(function(parks) {
     res.render('parks', { parks: parks } );
