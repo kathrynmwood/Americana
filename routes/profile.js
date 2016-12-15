@@ -34,7 +34,24 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
         }, function(err) {
             return next(err);
         });
+
+
+// Attempt at populating park info into cards
+for (let i=0; i < req.user.parksBucketList.length; i++) {
+Park.findOne({ _id: req.user.parksBucketList[i] })
+  .populate('name')    // <- pull in park name data
+  .exec(function(err, park) {
+    if (err){
+      return console.log(err);
+    }
+    else {
+      console.log(park.name + ' is the name of this park.');
+    }
+    // console.log('what was that park?', park);
+  });
+  }
 });
+
 
 // Adds park.id to user document under parksVisited
 router.get('/visited/add/:id', function(req, res, next) {
@@ -46,5 +63,7 @@ router.get('/visited/add/:id', function(req, res, next) {
             return next(err);
         });
 });
+
+
 
 module.exports = router;
