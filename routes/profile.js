@@ -7,7 +7,7 @@ var Park = require('../models/park.js');
 router.get('/', function(req, res, next) {
     if (req.user) {
         var userId = req.user._id;
-        User.findById(userId).populate('parksBucketList').exec(function(err, user) {
+        User.findById(userId).populate('parksVisited').populate('parksBucketList').exec(function(err, user) {
             if (err) {
                 return next(err);
             } else {
@@ -37,9 +37,12 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
 });
 
 
-// Adds park.id to user document under parksVisited
+// Adds park.id to user document under parksVisited and deletes park.id under parksBucketList
 router.get('/visited/add/:id', function(req, res, next) {
-    req.user.parksVisited.push(req.params.id);
+    let park = req.params.id;
+    let index = req.user.parksBucketList.indexOf(park);
+    req.user.parksVisited.push(park);
+    req.user.parksBucketList.splice(index,1);
     req.user.save()
         .then(function() {
             res.redirect('/profile');
@@ -48,12 +51,26 @@ router.get('/visited/add/:id', function(req, res, next) {
         });
 });
 
-// DESTROY
+// DESTROY parks bucket list item
 router.get('/bucketlist/delete/:id', function(req, res, next) {
     let park = req.params.id;
     let index = req.user.parksBucketList.indexOf(park);
     console.log(index);
     req.user.parksBucketList.splice(index, 1);
+    req.user.save()
+        .then(function(saved) {
+            res.redirect('/profile');
+        }, function(err) {
+            return next(err);
+        });
+});
+
+// DESTROY parks visited item
+router.get('/parksVisited/delete/:id', function(req, res, next) {
+    let park = req.params.id;
+    let index = req.user.parksVisited.indexOf(park);
+    console.log(index);
+    req.user.parksVisited.splice(index, 1);
     req.user.save()
         .then(function(saved) {
             res.redirect('/profile');

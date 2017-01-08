@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <% include partials/head %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style-park.css">
 </head>
 
 <body>
@@ -27,6 +28,8 @@
           <p> PUT REVIEWS DATA HERE </p>
 
       <a class="waves-effect waves-light btn-large" href="/parks">All Parks</a>
+      <a class="waves-effect waves-light btn-large" href="/profile/bucketlist/add/<%= park._id %>">Add to Bucket List</a>
+      <a class="waves-effect waves-light btn-large" href="/profile/visited/add/<%= park._id %>">Mark Visited</a>
   </main>
 
  </body>
