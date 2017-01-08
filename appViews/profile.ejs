@@ -11,10 +11,10 @@
     </header>
 
     <main>
-        <h1>My Bucket List</h1>
+        <h1>Bucket List</h1>
 
-            <div class="row">
-              <% if (user.parksBucketList.length > 0) { %>
+        <div class="row">
+            <% if (user.parksBucketList.length > 0) { %>
                 <% for (let i=0; i < user.parksBucketList.length; i++) { %>
                     <div class="col s12 m4">
                         <div class="card teal darken-3">
@@ -26,13 +26,37 @@
                             </div>
                             <div class="card-action">
                                 <a href="parks/<%= user.parksBucketList[i]._id %>">Learn More</a>
+                                <a href="profile/visited/add/<%= user.parksBucketList[i]._id %>">Visited</a>
                                 <a href="profile/bucketlist/delete/<%= user.parksBucketList[i]._id %>">Remove</a>
                             </div>
                         </div>
                     </div>
-                <% } %>
-              <% } %>
-            </div>
+                    <% } %>
+                        <% } %>
+        </div>
+
+        <h1>Parks Visited</h1>
+
+        <div class="row">
+            <% if (user.parksVisited.length > 0) { %>
+                <% for (let i=0; i < user.parksVisited.length; i++) { %>
+                    <div class="col s12 m4">
+                        <div class="card teal darken-3">
+                            <div class="card-content white-text">
+                                <span class="card-title"> <%= user.parksVisited[i].name %> </span>
+                                <p>
+                                    <%= user.parksVisited[i].state %>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="parks/<%= user.parksVisited[i]._id %>">Learn More</a>
+                                <a href="profile/parksVisited/delete/<%= user.parksVisited[i]._id %>">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% } %>
+        </div>
 
 
         <a class="waves-effect waves-light btn-large" href="/parks">All Parks</a>
