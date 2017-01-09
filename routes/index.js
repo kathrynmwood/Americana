@@ -22,7 +22,6 @@ var signUpStrategy = passport.authenticate('local-signup', {
 
 // POST /signup
 router.post('/signup', function(req, res, next) {
-  console.log(req.user);
   return signUpStrategy(req, res, next);
 });
 
