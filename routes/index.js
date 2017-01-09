@@ -13,14 +13,16 @@ router.get('/signup', function(req, res, next) {
   res.render('signup', { message: req.flash() });
 });
 
+// signUpStrategy function
+var signUpStrategy = passport.authenticate('local-signup', {
+  successRedirect : '/parks',
+  failureRedirect : '/signup',
+  failureFlash : true
+});
+
 // POST /signup
 router.post('/signup', function(req, res, next) {
-  var signUpStrategy = passport.authenticate('local-signup', {
-    successRedirect : '/parks',
-    failureRedirect : '/signup',
-    failureFlash : true
-  });
-
+  console.log(req.user);
   return signUpStrategy(req, res, next);
 });
 
