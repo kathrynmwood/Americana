@@ -6,6 +6,7 @@ var Park = require('../models/park.js');
 // SHOW
 router.get('/', function(req, res, next) {
     if (req.user) {
+        console.log(req.user);
         var userId = req.user._id;
         User.findById(userId).populate('parksVisited').populate('parksBucketList').exec(function(err, user) {
             if (err) {
