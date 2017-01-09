@@ -12,6 +12,7 @@
 
     <main>
         <h1>Bucket List</h1>
+        <p class="center-align">Add parks to your bucket list by exploring the National Parks page.</p>
 
         <div class="row">
             <% if (user.parksBucketList.length > 0) { %>
@@ -36,6 +37,7 @@
         </div>
 
         <h1>Parks Visited</h1>
+        <p class="center-align">Visit all 59 National Parks to be the ultimate American explorer.</p>
 
         <div class="row">
             <% if (user.parksVisited.length > 0) { %>
@@ -59,7 +61,7 @@
         </div>
 
 
-        <a class="waves-effect waves-light btn-large" href="/parks">All Parks</a>
+        <a class="waves-effect waves-light btn-large center-align" href="/parks">National Parks</a>
     </main>
 
 </body>
