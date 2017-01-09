@@ -20,7 +20,7 @@ router.post('/signup', function(req, res, next) {
     failureRedirect : '/signup',
     failureFlash : true
   });
-
+  console.log(req.user);
   return signUpStrategy(req, res, next);
 });
 

@@ -6,8 +6,8 @@ var UserSchema = new mongoose.Schema({
       email: String,
       password: String
     },
-    // firstName: String,
-    // lastName: String,
+    firstName: String,
+    lastName: String,
     parksVisited:    [ { type: mongoose.Schema.Types.ObjectId, ref: 'Park' } ],
     parksBucketList: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Park' } ]
   });
