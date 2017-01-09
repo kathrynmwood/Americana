@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 
 // Adds park.id to user document under parksBucketList
 router.get('/bucketlist/add/:id', function(req, res, next) {
-    req.user.parksBucketList.push(req.params.id);
+    req.user.parksBucketList.addToSet(req.params.id);
     req.user.save()
         .then(function() {
             res.redirect('/profile');
@@ -41,7 +41,7 @@ router.get('/bucketlist/add/:id', function(req, res, next) {
 router.get('/visited/add/:id', function(req, res, next) {
     let park = req.params.id;
     let index = req.user.parksBucketList.indexOf(park);
-    req.user.parksVisited.push(park);
+    req.user.parksVisited.addToSet(park);
     req.user.parksBucketList.splice(index,1);
     req.user.save()
         .then(function() {
